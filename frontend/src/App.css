@@ -3,6 +3,7 @@
 
 .cart-quantity {
   background: #4CADE0;
-  padding: 0.1rem;
+  padding: 0rem 0.4rem;
+  border-radius: 50%;
   
 }
