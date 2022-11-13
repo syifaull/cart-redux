@@ -4,7 +4,6 @@ import axios from 'axios';
 const initialState = {
   items: [],
   status: null,
-  error: null,
 };
 
 export const productsFetch = createAsyncThunk(
