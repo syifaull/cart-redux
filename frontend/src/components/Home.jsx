@@ -1,5 +1,5 @@
 // import { useSelector } from 'react-redux';
-import { productsApi, useGetAllProductsQuery } from '../features/productsApi';
+import { useGetAllProductsQuery } from '../features/productsApi';
 
 const Home = () => {
   // const { items, status } = useSelector(state => state.products)
@@ -13,7 +13,7 @@ const Home = () => {
           {data?.map((product) => {
             return (
               <div key={product.id}>
-                <h3>{productsApi.name}</h3>
+                <h3>{product.name}</h3>
                 <img src={product.image} alt={product.name}/>
                 <p>{product.price}</p>
                 <p>{product.desc}</p>
