@@ -5,7 +5,7 @@ const NavbarComp = () => {
   return (
     <div>
       <Navbar bg="light" variant="light">
-        <Container>
+        <Container >
           <Navbar.Brand href="/">ShoppingCart</Navbar.Brand>
           <Nav>
             <Nav.Link href="/cart">
