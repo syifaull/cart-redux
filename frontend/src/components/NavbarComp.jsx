@@ -6,7 +6,7 @@ const NavbarComp = () => {
     <div>
       <Navbar bg="light" variant="light">
         <Container >
-          <Navbar.Brand href="/">ShoppingCart</Navbar.Brand>
+          <Navbar.Brand href="/">ONLINE SHOP</Navbar.Brand>
           <Nav>
             <Nav.Link href="/cart">
               <i className="bi bi-basket3-fill fs-3 nav-cart"></i>
