@@ -1,17 +1,18 @@
 import React from "react";
 
-const CartCard = () => {
+const CartCard = (props) => {
   return (
     <tr>
       <td>
         <div className="d-flex">
         <img
-          src="https://cdn-images.farfetch-contents.com/19/01/47/80/19014780_41429205_300.jpg"
+          src={props.image}
+          alt = {props.name}
           style={{ width: "8rem" }}
         />
         <div>
-        <p>Nama Barang</p>
-        <p>Harga Barang</p>
+        <p>{props.name}</p>
+        <p>{props.price}</p>
         <i class="bi bi-trash"></i>
         </div>
 
@@ -20,11 +21,11 @@ const CartCard = () => {
       <td>
         <div className="d-flex">
           <button>-</button>
-          <p className="px-3">3</p>
+          <p className="px-3">{props.quantity}</p>
           <button>+</button>
         </div>
       </td>
-      <td>subtotal</td>
+      <td>${props.quantity * props.price}</td>
     </tr>
   );
 };
