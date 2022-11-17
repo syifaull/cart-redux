@@ -2,7 +2,7 @@ import React from "react";
 
 const CartCard = (props) => {
   return (
-    <tr>
+    <>
       <td>
         <div className="d-flex">
         <img
@@ -26,7 +26,7 @@ const CartCard = (props) => {
         </div>
       </td>
       <td>${props.quantity * props.price}</td>
-    </tr>
+    </>
   );
 };
 
