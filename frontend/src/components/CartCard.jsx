@@ -13,7 +13,7 @@ const CartCard = (props) => {
         <div>
         <p>{props.name}</p>
         <p>{props.price}</p>
-        <i class="bi bi-trash"></i>
+        <i class="bi bi-trash" onClick={props.handleRemoveCart}></i>
         </div>
 
         </div>

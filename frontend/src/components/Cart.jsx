@@ -1,10 +1,16 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { removeFromCart } from "../features/CartSlice";
 import CartCard from "./CartCard";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+
+  const handleRemoveCart = (item) => {
+    dispatch(removeFromCart(item));
+  }
 
   return (
     <div className="container">
@@ -30,16 +36,18 @@ const Cart = () => {
               </tr>
               {cart.cartItems?.map((item) => {
                 return(
-                  <div key= {item.id}>
-                    <CartCard src = {item.image} alt={item.name} name={item.name} price={item.price} quantity={item.cartQuantity}/>
-                  </div>
+                  <tr key= {item.id}>
+                    <CartCard src = {item.image} alt={item.name} name={item.name} price={item.price} quantity={item.cartQuantity} handleRemoveCart = {() => handleRemoveCart(item)}/>
+                  </tr>
                 )
               })}
             </table>
           </div>
-          <div className="d-flex justify-content-between">
+          <div className="d-flex justify-content-between mt-5 ">
+            <div>
             <button>clear cart</button>
-            <div className="border rounded mt-5 ">
+            </div>
+            <div className="border rounded ">
               <p>Total : ${cart.cartTotalAmount}</p>
               <button>Checkout</button>
               <div>
