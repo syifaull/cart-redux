@@ -25,16 +25,20 @@ const cartSlice = createSlice({
           position: "bottom-right"
         });
       }
-
+      
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
-
+    
     removeFromCart(state, action) {
       const nextCartItems = state.cartItems.filter(
         cartItem => cartItem.id !== action.payload.id
-      )
-
-      state.cartItems = nextCartItems;
+        )
+        
+        state.cartItems = nextCartItems;
+        localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+        toast.error(`${action.payload.name} removed from cart`, {
+          position: "bottom-right"
+        });
     },
   }
 });
