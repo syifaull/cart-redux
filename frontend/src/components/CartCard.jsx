@@ -20,9 +20,9 @@ const CartCard = (props) => {
       </td>
       <td>
         <div className="d-flex">
-          <button>-</button>
+          <button onClick={props.handleDecreaseCart}>-</button>
           <p className="px-3">{props.quantity}</p>
-          <button>+</button>
+          <button onClick={props.handleIncreaseCart}>+</button>
         </div>
       </td>
       <td>${props.quantity * props.price}</td>

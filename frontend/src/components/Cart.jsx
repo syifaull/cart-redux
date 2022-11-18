@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { removeFromCart } from "../features/CartSlice";
+import { addToCart, decreaseCart, removeFromCart } from "../features/CartSlice";
 import CartCard from "./CartCard";
 
 const Cart = () => {
@@ -10,6 +10,14 @@ const Cart = () => {
 
   const handleRemoveCart = (item) => {
     dispatch(removeFromCart(item));
+  }
+
+  const handleDecreaseCart = (item) => {
+    dispatch(decreaseCart(item));
+  }
+
+  const handleIncreaseCart = (item) => {
+    dispatch(addToCart(item));
   }
 
   return (
@@ -37,7 +45,15 @@ const Cart = () => {
               {cart.cartItems?.map((item) => {
                 return(
                   <tr key= {item.id}>
-                    <CartCard src = {item.image} alt={item.name} name={item.name} price={item.price} quantity={item.cartQuantity} handleRemoveCart = {() => handleRemoveCart(item)}/>
+                    <CartCard
+                    src = {item.image}
+                    alt={item.name}
+                    name={item.name}
+                    price={item.price}
+                    quantity={item.cartQuantity}
+                    handleRemoveCart = {() => handleRemoveCart(item)}
+                    handleDecreaseCart = {() => handleDecreaseCart(item)}
+                    handleIncreaseCart = {() => handleIncreaseCart(item)}/>
                   </tr>
                 )
               })}
