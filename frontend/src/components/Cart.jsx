@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import {
   addToCart,
   clearCart,
   decreaseCart,
+  getTotals,
   removeFromCart,
 } from "../features/CartSlice";
 import CartCard from "./CartCard";
@@ -12,6 +13,10 @@ import CartCard from "./CartCard";
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getTotals());
+  }, [cart]);
 
   const handleRemoveCart = (item) => {
     dispatch(removeFromCart(item));
@@ -74,7 +79,7 @@ const Cart = () => {
               <button onClick={handleClearAll}>clear cart</button>
             </div>
             <div className="border rounded ">
-              <p>Total : ${cart.cartTotalAmount}</p>
+              <p>Total : Rp. {cart.cartTotalAmount}</p>
               <button>Checkout</button>
               <div>
                 <Link to="/" />

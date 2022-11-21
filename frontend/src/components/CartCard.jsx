@@ -5,17 +5,12 @@ const CartCard = (props) => {
     <>
       <td>
         <div className="d-flex">
-        <img
-          src={props.image}
-          alt = {props.name}
-          style={{ width: "8rem" }}
-        />
-        <div>
-        <p>{props.name}</p>
-        <p>{props.price}</p>
-        <i class="bi bi-trash" onClick={props.handleRemoveCart}></i>
-        </div>
-
+          <img src={props.src} alt={props.name} style={{ width: "8rem" }} />
+          <div>
+            <p>{props.name}</p>
+            <p>Rp. {props.price}</p>
+            <i class="bi bi-trash" onClick={props.handleRemoveCart}></i>
+          </div>
         </div>
       </td>
       <td>
@@ -25,7 +20,7 @@ const CartCard = (props) => {
           <button onClick={props.handleIncreaseCart}>+</button>
         </div>
       </td>
-      <td>${props.quantity * props.price}</td>
+      <td>Rp. {props.quantity * props.price}</td>
     </>
   );
 };
